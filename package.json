@@ -1,7 +1,7 @@
 {
-  "name": "package-seed",
+  "name": "vfes-validator",
   "version": "1.0.0",
-  "description": "Package seed",
+  "description": "Validator for web forms",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open --color --hot",
@@ -15,17 +15,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/area73/package-seed.git"
+    "url": "git+https://bitbucket.agile.vodafone.com/scm/cseof/vfes-validator.git"
   },
   "keywords": [
-    "seed"
+    "Web form validator",
+    "validator"
   ],
-  "author": "Rodrigo Erades <rerades@siete3.com>",
+  "author": "Vodafone ES",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/area73/package-seed/issues"
-  },
-  "homepage": "https://github.com/area73/package-seed#readme",
+
+  "homepage": "https://bitbucket.agile.vodafone.com/projects/CSEOF/repos/vfes-validator/browse/README.md",
   "browserslist": [
     "last 2 Chrome versions",
     "last 2 Firefox versions",
