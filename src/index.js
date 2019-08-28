@@ -1,14 +1,16 @@
-window.alert('js loaded');
+import Validator from './validator';
 
-// const a = 10;
+const form = document.getElementById('form1');
 
-console.log('xdfd');
+const validator = new Validator(form, {
+  rules: {
+    inputName: {},
+    inputName2: {},
+  },
+  messages: {
+    inputName: {},
+    inputName2: {},
+  },
+});
 
-const b = c => {
-  // b = 23;
-
-  console.log(c);
-  // const c = 22;
-};
-
-b(3);
+validator.init();

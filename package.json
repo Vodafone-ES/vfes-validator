@@ -23,7 +23,6 @@
   ],
   "author": "Vodafone ES",
   "license": "MIT",
-
   "homepage": "https://bitbucket.agile.vodafone.com/projects/CSEOF/repos/vfes-validator/browse/README.md",
   "browserslist": [
     "last 2 Chrome versions",

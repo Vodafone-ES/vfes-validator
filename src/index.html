@@ -1,16 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <h1>Lorem Ipsum</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend enim pharetra libero dignissim egestas. Aliquam eget nulla vestibulum, mattis orci
-      non, lacinia magna. Vivamus non vestibulum nisl, vel hendrerit tellus. Aenean semper dignissim dignissim. Nullam sed enim aliquam, fermentum elit nec,
-      mollis urna. Sed et consequat sem. Phasellus rhoncus posuere est, non laoreet lorem. Vestibulum maximus accumsan mi eget blandit. Donec in ante arcu. Sed
-      hendrerit vehicula magna, vel euismod ex egestas eget.
-    </p>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Validation example</title>
+	</head>
+	<body>
+		<h1>Formulario de ejemplo</h1>
+		<form id="form1" action="/" method="POST">
+			<fieldset>
+				<legend>Legend</legend>
+				<div>
+					<label for="text">Label para el campo de texto: </label>
+					<input id="text" type="text" name="text" placeholder="Texto libre" />
+					<span data-form-message></span>
+				</div>
+				<div>
+					<label for="password">Label para la contraseña: </label>
+					<input id="password" type="password" name="password" placeholder="Contraseña" />
+					<span data-form-message></span>
+				</div>
+				<div>
+					<label for="email">Label para el campo de email: </label>
+					<input id="email" type="email" name="email" placeholder="Email" />
+					<span data-form-message></span>
+				</div>
+				<div>
+					<label for="number">Label para el campo de número: </label>
+					<input id="number" type="number" name="number" placeholder="Número cualquiera" />
+					<span data-form-message></span>
+				</div>
+				<div>
+					<input id="checkbox" type="checkbox" name="checkbox" />
+					<label for="checkbox">Label para el checkbox: </label>
+					<span data-form-message></span>
+				</div>
+				<div>
+					<label for="phone">Label para el teléfono: </label>
+					<input id="phone" type="tel" name="phone" />
+					<span data-form-message></span>
+				</div>
+				<div>
+					<input id="radio1" type="radio" name="radio" value="radio1" checked />
+					<label for="radio1">Label para el radio1: </label>
+					<input id="radio2" type="radio" name="radio" value="radio2" />
+					<label for="radio2">Label para el radio2: </label>
+					<input id="radio3" type="radio" name="radio" value="radio3" />
+					<label for="radio3">Label para el radio3: </label>
+					<span data-form-message></span>
+				</div>
+				<div>
+					<label for="textarea">Label para el textarea: </label>
+					<textarea name="textarea" id="textarea" cols="30" rows="10"></textarea>
+					<span data-form-message></span>
+				</div>
+				<div>
+					<input type="reset">
+					<input type="color">
+					<input type="time" name="usr_time">
+					<input type="datetime-local">
+					<input type="date">
+					<input type="month" name="bdaymonth">
+					<input type="week" name="week_year">
+					<input type="file">
+					<input type="range" name="points" min="0" max="10">
+					<input type="search" name="googlesearch">
+					<input type="url" name="homepage">
+				</div>
+				<div>
+					<input type="submit" value="Input submit" />
+					<button type="submit">Button submit</button>
+					<span data-form-message></span>
+				</div>
+			</fieldset>
+		</form>
+	</body>
+	<script type="module" src="index.js"></script>
 </html>
