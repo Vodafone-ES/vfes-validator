@@ -1,0 +1,16 @@
+En rules vamos a tener las siguientes reglas opcionales para los campos:
+ - minLength: [ Number ] - para escribir un mínimo de caracteres.
+ - maxLength: [ Number ] - para escribir un máximo de caracteres.
+ - required: [ Boolean ] - para saber si el campo debe ser requerido o no.
+ - nifES: [ STRING ] - validador de nif.
+ - nieES: [ STRING ] - validación de nieses.
+ - cifES: [ STRING ] - validación de cifeses.
+ - cp: [ Number ] - validación de códigos postales.
+ - digits: [ Boolean ] - Solo números.
+ - email: [ Boolean ] - Validación de emails.
+ - onfocusout: [ Boolean ] - hacer la validación al perder el foco del input o en el submit.*
+ - pattern: [ STRING ] - expresión regular asociada al campo.*
+ - equalTo: [ STRING ] - selector del elemento con el que comparar el valor de un campo.*
+
+
+*reglas dudosas
