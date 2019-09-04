@@ -19,7 +19,8 @@ module.exports = {
     'import/prefer-default-export': 0,
     'prettier/prettier': 'error',
     'radix': ['error', 'as-needed'],
-    'class-methods-use-this': ['off']
+    'class-methods-use-this': ['off'],
+    'no-useless-escape': 'off'
   },
   settings: {
     'import/resolver': {

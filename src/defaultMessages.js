@@ -1,11 +1,11 @@
 export default {
-  cif: 'Formato de CIF incorrecto. Ej: Z99999999 | Z9999999Z',
+  cif: 'CIF incorrecto.',
   cp: 'Código postal incorrecto',
-  digit: 'Sólo puede escrbir números.',
+  digits: 'Sólo puede escribir números.',
   email: 'Formato de email incorrecto.',
-  maxLength: n => `${n} caracteres como máximo.`,
-  minLength: n => `${n} caracteres como mínimo.`,
-  nie: 'Formato de NIE incorrecto. Ej: Z9999999Z',
-  nif: 'Formato de NIF incorrecto. Ej: 99999999Z',
+  maxlength: n => `${n} caracteres como máximo.`,
+  minlength: n => `${n} caracteres como mínimo.`,
+  nie: 'NIE incorrecto.',
+  nif: 'NIF incorrecto.',
   required: 'Campo obligatorio',
 };
