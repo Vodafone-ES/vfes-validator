@@ -6,7 +6,7 @@ const validator = new Validator(form, {
     customRules: {
         valueIs: (input, ruleValue) => {
             return input.value === ruleValue;
-        }
+        },
     },
     rules: {
         cif: {
@@ -42,13 +42,13 @@ const validator = new Validator(form, {
     },
     messages: {
         'text-required': {
-            valueIs: 'Parece que el nombre no es igual'
+            valueIs: 'Parece que el nombre no es igual',
         },
         checkbox: {
-            required: 'Checkeame el checkbox figurita'
+            required: 'Checkeame el checkbox figurita',
         },
         radio: {
-            required: 'Rodeame el radio figurita'
+            required: 'Rodeame el radio figurita',
         },
     },
     onfocusout: true,

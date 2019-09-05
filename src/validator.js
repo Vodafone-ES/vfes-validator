@@ -80,13 +80,13 @@ export default class Validator {
      * @returns { Boolean }
      */
     execRule(ruleName, input, r) {
-        if(rulesController[ruleName]) {
+        if (rulesController[ruleName]) {
             return rulesController[ruleName](input, r);
-        } else if(this.customRules[ruleName]) {
-            return this.customRules[ruleName](input, r);
-        } else {
-            throw new Error(`¡ERROR! La regla "${ruleName}" no existe.`);
         }
+        if (this.customRules[ruleName]) {
+            return this.customRules[ruleName](input, r);
+        }
+        throw new Error(`¡ERROR! La regla "${ruleName}" no existe.`);
     }
 
     /**
@@ -182,8 +182,8 @@ export default class Validator {
     getErrorMessage(inputName, v, r) {
         let msg = this.messages[inputName] && this.messages[inputName][r] ? this.messages[inputName][r] : defaultMesages[r];
 
-        if(msg) {
-            if(!this.isStringRule(msg)) {
+        if (msg) {
+            if (!this.isStringRule(msg)) {
                 msg = msg(v);
             }
         } else {
