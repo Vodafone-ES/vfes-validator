@@ -10,7 +10,7 @@ import isValidNif from './nif';
  * @returns {String} primer dígito.
  */
 function getPrefix(nie) {
-  return nie.substr(0, 1).toUpperCase();
+    return nie.substr(0, 1).toUpperCase();
 }
 
 /**
@@ -23,9 +23,9 @@ function getPrefix(nie) {
  * @returns {NUmber} prefijo.
  */
 function getNumPrefix(prefix) {
-  return ['X', 'Y', 'Z'].indexOf(prefix) >= 0 ? String(['X', 'Y', 'Z'].indexOf(prefix)) : prefix;
+    return ['X', 'Y', 'Z'].indexOf(prefix) >= 0 ? String(['X', 'Y', 'Z'].indexOf(prefix)) : prefix;
 }
 
 export default nie => {
-  return isValidNif(getNumPrefix(getPrefix(nie)) + nie.substr(1));
+    return isValidNif(getNumPrefix(getPrefix(nie)) + nie.substr(1));
 };

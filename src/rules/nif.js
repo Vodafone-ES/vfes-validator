@@ -8,7 +8,7 @@
  * @returns {Boolean} true|false.
  */
 function hasCorrectFormat(nif) {
-  return /^\d{8}[a-zA-Z]$/.test(nif);
+    return /^\d{8}[a-zA-Z]$/.test(nif);
 }
 
 /**
@@ -21,7 +21,7 @@ function hasCorrectFormat(nif) {
  * @returns {String} número del NIF.
  */
 function getNumber(nif) {
-  return nif.substr(0, nif.length - 1);
+    return nif.substr(0, nif.length - 1);
 }
 
 /**
@@ -34,7 +34,7 @@ function getNumber(nif) {
  * @returns {String} letra del NIF.
  */
 function getLetterFromNIF(nif) {
-  return nif.substr(nif.length - 1, 1);
+    return nif.substr(nif.length - 1, 1);
 }
 
 /**
@@ -47,7 +47,7 @@ function getLetterFromNIF(nif) {
  * @returns {String} letra calculada.
  */
 function getCalcLetter(num) {
-  return 'TRWAGMYFPDXBNJZSQVHLCKET'.substring(num, num + 1);
+    return 'TRWAGMYFPDXBNJZSQVHLCKET'.substring(num, num + 1);
 }
 
 /**
@@ -60,12 +60,12 @@ function getCalcLetter(num) {
  * @returns {String} letra calculada.
  */
 function calcLetter(nif) {
-  return parseInt(getNumber(nif)) % 23;
+    return parseInt(getNumber(nif)) % 23;
 }
 
 export default nif => {
-  if (hasCorrectFormat(nif)) {
-    return getCalcLetter(calcLetter(nif)) === getLetterFromNIF(nif).toUpperCase();
-  }
-  return false;
+    if (hasCorrectFormat(nif)) {
+        return getCalcLetter(calcLetter(nif)) === getLetterFromNIF(nif).toUpperCase();
+    }
+    return false;
 };

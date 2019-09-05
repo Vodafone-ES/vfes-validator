@@ -17,7 +17,7 @@ const letters = ['J', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
  * @returns {String} primer caracter del CIF.
  */
 function getFirstLetter(cif) {
-  return cif.substr(0, 1);
+    return cif.substr(0, 1);
 }
 
 /**
@@ -30,7 +30,7 @@ function getFirstLetter(cif) {
  * @returns {String} dígitos provinciales.
  */
 function getProvDigits(cif) {
-  return cif.substr(1, 3);
+    return cif.substr(1, 3);
 }
 
 /**
@@ -43,7 +43,7 @@ function getProvDigits(cif) {
  * @returns {String} dígitos de control.
  */
 function getControlDigit(cif) {
-  return cif.substr(cif.length - 1);
+    return cif.substr(cif.length - 1);
 }
 
 /**
@@ -56,7 +56,7 @@ function getControlDigit(cif) {
  * @returns {String} dígitos de control.
  */
 function getDigits(cif) {
-  return cif.substr(1, cif.length - 2);
+    return cif.substr(1, cif.length - 2);
 }
 
 /**
@@ -69,7 +69,7 @@ function getDigits(cif) {
  * @returns {Boolean} true|false
  */
 function hasCorrectLength(cif) {
-  return cif.length === 9;
+    return cif.length === 9;
 }
 
 /**
@@ -82,7 +82,7 @@ function hasCorrectLength(cif) {
  * @returns {Boolean} true|false
  */
 function hasCorrectFirstLetter(cif) {
-  return initLetter.includes(cif.substr(0, 1));
+    return initLetter.includes(cif.substr(0, 1));
 }
 
 /**
@@ -95,7 +95,7 @@ function hasCorrectFirstLetter(cif) {
  * @returns {Boolean} true|false
  */
 function canCalcControl(cif) {
-  return !isNaN(getDigits(cif));
+    return !isNaN(getDigits(cif));
 }
 
 /**
@@ -108,7 +108,7 @@ function canCalcControl(cif) {
  * @returns {Boolean} true|false
  */
 function isNotResident(cif) {
-  return getProvDigits(cif) === '00';
+    return getProvDigits(cif) === '00';
 }
 
 /**
@@ -121,15 +121,15 @@ function isNotResident(cif) {
  * @returns {Number} número del dígito de control.
  */
 function sumDigits(num) {
-  let y = 0;
+    let y = 0;
 
-  String(num)
-    .split('')
-    .forEach(x => {
-      y += parseInt(x);
-    });
+    String(num)
+        .split('')
+        .forEach(x => {
+            y += parseInt(x);
+        });
 
-  return y;
+    return y;
 }
 
 /**
@@ -142,24 +142,24 @@ function sumDigits(num) {
  * @returns {Number} número del dígito de control.
  */
 function calcControlDigit(cif) {
-  const arDigs = getDigits(cif).split('');
-  let sum = 0;
+    const arDigs = getDigits(cif).split('');
+    let sum = 0;
 
-  for (let i = 0; i < arDigs.length; i += 1) {
-    let dig = parseInt(arDigs[i]);
+    for (let i = 0; i < arDigs.length; i += 1) {
+        let dig = parseInt(arDigs[i]);
 
-    if (i % 2 === 0) {
-      dig *= 2;
+        if (i % 2 === 0) {
+            dig *= 2;
 
-      sum += dig > 9 ? sumDigits(dig) : dig;
-    } else {
-      sum += dig;
+            sum += dig > 9 ? sumDigits(dig) : dig;
+        } else {
+            sum += dig;
+        }
     }
-  }
 
-  sum %= 10;
+    sum %= 10;
 
-  return sum === 0 ? 0 : 10 - sum;
+    return sum === 0 ? 0 : 10 - sum;
 }
 
 /**
@@ -172,7 +172,7 @@ function calcControlDigit(cif) {
  * @returns {Boolean} true|false
  */
 function controlMustBeLetter(cif) {
-  return endLetterIf.includes(getFirstLetter(cif) || isNotResident(cif));
+    return endLetterIf.includes(getFirstLetter(cif) || isNotResident(cif));
 }
 
 /**
@@ -185,7 +185,7 @@ function controlMustBeLetter(cif) {
  * @returns {Boolean} true|false
  */
 function controlMustBeNumber(cif) {
-  return endNumIf.includes(getFirstLetter(cif));
+    return endNumIf.includes(getFirstLetter(cif));
 }
 
 /**
@@ -198,23 +198,23 @@ function controlMustBeNumber(cif) {
  * @returns {Boolean} true|false
  */
 function hasCorrectControlDigit(cif) {
-  if (controlMustBeLetter(cif)) {
-    return /^[A-Z]$/.test(getControlDigit(cif));
-  }
-  if (controlMustBeNumber(cif)) {
-    return /^[0-9]$/.test(getControlDigit(cif));
-  }
-  return true;
+    if (controlMustBeLetter(cif)) {
+        return /^[A-Z]$/.test(getControlDigit(cif));
+    }
+    if (controlMustBeNumber(cif)) {
+        return /^[0-9]$/.test(getControlDigit(cif));
+    }
+    return true;
 }
 
 export default cif => {
-  const newCif = cif.toUpperCase();
+    const newCif = cif.toUpperCase();
 
-  if (hasCorrectLength(newCif) && hasCorrectFirstLetter(newCif) && hasCorrectControlDigit(newCif) && canCalcControl(newCif)) {
-    const control = getControlDigit(cif);
-    const controlCalculated = calcControlDigit(cif);
+    if (hasCorrectLength(newCif) && hasCorrectFirstLetter(newCif) && hasCorrectControlDigit(newCif) && canCalcControl(newCif)) {
+        const control = getControlDigit(cif);
+        const controlCalculated = calcControlDigit(cif);
 
-    return control === String(controlCalculated) || control === letters[controlCalculated];
-  }
-  return false;
+        return control === String(controlCalculated) || control === letters[controlCalculated];
+    }
+    return false;
 };

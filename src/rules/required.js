@@ -8,7 +8,7 @@
  * @returns { Boolean }
  */
 function isRadio(input) {
-  return input.type === 'radio';
+    return input.type === 'radio';
 }
 
 /**
@@ -21,12 +21,12 @@ function isRadio(input) {
  * @returns { Boolean }
  */
 function isCheckbox(input) {
-  return input.type === 'checkbox';
+    return input.type === 'checkbox';
 }
 
 export default input => {
-  if (isRadio(input) || isCheckbox(input)) {
-    return input.checked;
-  }
-  return input.value !== '';
+    if (isRadio(input) || isCheckbox(input)) {
+        return input.checked;
+    }
+    return input.value !== '';
 };
