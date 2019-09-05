@@ -1,12 +1,12 @@
-import cif from './rules/cif';
-import nif from './rules/nif';
-import nie from './rules/nie';
-import cp from './rules/cp';
-import digits from './rules/digits';
-import email from './rules/email';
-import minlength from './rules/minLength';
-import maxlength from './rules/maxLength';
-import required from './rules/required';
+import cif from './rules/cif.js';
+import nif from './rules/nif.js';
+import nie from './rules/nie.js';
+import cp from './rules/cp.js';
+import digits from './rules/digits.js';
+import email from './rules/email.js';
+import minlength from './rules/minLength.js';
+import maxlength from './rules/maxLength.js';
+import required from './rules/required.js';
 
 const rulesController = {
     cif(input, r) {

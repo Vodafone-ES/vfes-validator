@@ -1,4 +1,4 @@
-import isValidNif from './nif';
+import isValidNif from './nif.js';
 
 /**
  * @function getPrefix

@@ -1,5 +1,5 @@
-import rulesController from './rulesController';
-import defaultMesages from './defaultMessages';
+import rulesController from './rulesController.js';
+import defaultMesages from './defaultMessages.js';
 
 export default class Validator {
     constructor(form, options) {
