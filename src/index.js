@@ -3,6 +3,11 @@ import Validator from './validator';
 const form = document.getElementById('form1');
 
 const validator = new Validator(form, {
+    customRules: {
+        valueIs: (input, ruleValue) => {
+            return input.value === ruleValue;
+        }
+    },
     rules: {
         cif: {
             cif: true,
@@ -23,6 +28,7 @@ const validator = new Validator(form, {
             digits: true,
         },
         'text-required': {
+            valueIs: 'Antonio',
             required: true,
             minlength: 2,
             maxlength: 8,
@@ -35,11 +41,14 @@ const validator = new Validator(form, {
         },
     },
     messages: {
+        'text-required': {
+            valueIs: 'Parece que el nombre no es igual'
+        },
         checkbox: {
-            required: 'Checkeame el checkbox figurita',
+            required: 'Checkeame el checkbox figurita'
         },
         radio: {
-            required: 'Rodeame el radio figurita',
+            required: 'Rodeame el radio figurita'
         },
     },
     onfocusout: true,

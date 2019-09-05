@@ -8,6 +8,7 @@ export default class Validator {
         this.errorClass = options.errorClass && typeof options.errorClass === 'string' ? options.errorClass : '';
         this.messages = options.messages && typeof options.messages === 'object' ? options.messages : {};
         this.rules = options.rules && typeof options.rules === 'object' ? options.rules : {};
+        this.customRules = options.customRules ? options.customRules : {};
         this.onfocusout = options.onfocusout && typeof options.onfocusout === 'boolean' ? options.onfocusout : false;
         this.onFocusoutEventListener = this.onFocusoutHandler.bind(this);
         this.onSubmitEventListener = this.onSubmitHandler.bind(this);
@@ -79,7 +80,13 @@ export default class Validator {
      * @returns { Boolean }
      */
     execRule(ruleName, input, r) {
-        return rulesController[ruleName] ? rulesController[ruleName](input, r) : true;
+        if(rulesController[ruleName]) {
+            return rulesController[ruleName](input, r);
+        } else if(this.customRules[ruleName]) {
+            return this.customRules[ruleName](input, r);
+        } else {
+            throw new Error(`¡ERROR! La regla "${ruleName}" no existe.`);
+        }
     }
 
     /**
@@ -175,9 +182,15 @@ export default class Validator {
     getErrorMessage(inputName, v, r) {
         let msg = this.messages[inputName] && this.messages[inputName][r] ? this.messages[inputName][r] : defaultMesages[r];
 
-        msg = this.isStringRule(msg) ? msg : msg(v);
+        if(msg) {
+            if(!this.isStringRule(msg)) {
+                msg = msg(v);
+            }
+        } else {
+            throw new Error(`¡ERROR! No existe mensaje de error para la regla "${r}".`);
+        }
 
-        return msg || null;
+        return msg;
     }
 
     /**
