@@ -5,7 +5,7 @@ Validador genérico de formularios en javascript.
 ## Instalación
 
 ## Como empezar
-Lo único que tendremos que tener en cuenta, en cuanto al formulario de HTML, es que los elementos donde mostremos los mensajes de error deben llevar el atributo `data-form-message`.
+Lo único que tendremos que tener en cuenta, dentro del formulario de HTML, es que los elementos donde mostremos los mensajes de error deben llevar el atributo `data-form-message`.
 
 ```html
 <form id="form1" action="/" method="POST">
@@ -27,6 +27,7 @@ Lo único que tendremos que tener en cuenta, en cuanto al formulario de HTML, es
     </fieldset>
 </form>
 ```
+<br>
 
 ## Inicialización de la librería
 
@@ -58,10 +59,11 @@ Lo único que tendremos que tener en cuenta, en cuanto al formulario de HTML, es
 
     validator.init();
 ```
+<br>
 
 ## Rules
 
-Las reglas se pasan en un **object** y se debe asociar el name del input con las reglas existentes. El formato es el siguiente:
+Las reglas se pasan en un **object** y se debe asociar el name del input con el nombre de las reglas existentes. El formato es el siguiente:
 
 ```javascript
     rules: {
@@ -86,6 +88,7 @@ Las reglas disponibles por defecto son las siguientes:
 |`required`      |**boolean**                    | Campo obligatorio       |
 
 ---
+<br>
 
 ### Mensajes de error
 Para añadir mensajes tenemos que incluir el objecto ``messages`` dentro de las opciones del validador. Su formato es el siguiente:
@@ -98,11 +101,13 @@ Para añadir mensajes tenemos que incluir el objecto ``messages`` dentro de las 
     }
 ```
 
+<br>
+
 ## Otras opciones
 
-Podemos añadir varias opciones más al validador de las antes mencionadas. Una de ellas es el **object** ``customRules``. Con este objeto podemos finir nuestras propias reglas.  
+Podemos añadir varias opciones más al validador de las antes mencionadas. Una de ellas es el **object** ``customRules``. Con este objeto podemos definir nuestras propias reglas.  
 
-Los parámetros que nos devuelve el validador para ejecutar nuestra **customRule** son el ``input`` y el valor de la regla. El formato es el siguiente:
+Los parámetros que nos devuelve el validador para ejecutar nuestra **customRule** son el ``input`` y el valor de la regla. El formato es el siguiente:  
 
 ```javascript
     //optional object
