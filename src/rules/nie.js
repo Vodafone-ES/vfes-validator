@@ -20,7 +20,7 @@ function getPrefix(nie) {
  *
  * @param {String} prefix - Primer valor del NIE.
  *
- * @returns {NUmber} prefijo.
+ * @returns {String} prefijo.
  */
 function getNumPrefix(prefix) {
     return ['X', 'Y', 'Z'].indexOf(prefix) >= 0 ? String(['X', 'Y', 'Z'].indexOf(prefix)) : prefix;
