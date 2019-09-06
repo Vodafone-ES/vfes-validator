@@ -9,7 +9,7 @@ const validator = new Validator(form, {
         },
     },
     rules: {
-        cif: {
+        cf: {
             cif: true,
         },
         nie: {

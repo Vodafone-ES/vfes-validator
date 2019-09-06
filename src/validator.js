@@ -1,5 +1,6 @@
 import rulesController from './rulesController.js';
-import defaultMesages from './defaultMessages.js';
+import defaultMesages from './messages/defaults.js';
+import errorMesages from './messages/error.js';
 
 export default class Validator {
     constructor(form, options) {
@@ -86,7 +87,7 @@ export default class Validator {
         if (this.customRules[ruleName]) {
             return this.customRules[ruleName](input, r);
         }
-        throw new Error(`¡ERROR! La regla "${ruleName}" no existe.`);
+        throw errorMesages.ruleNotFound(ruleName);
     }
 
     /**
@@ -113,12 +114,17 @@ export default class Validator {
         mod.errorList.forEach(err => {
             const daddy = err.input.parentElement;
             const [firstError] = err.errors;
+            const msgEl = daddy.querySelector('[data-form-message]');
 
             if (mod.errorClass) {
                 daddy.classList.add(mod.errorClass);
             }
 
-            daddy.querySelector('[data-form-message]').innerHTML = firstError;
+            if(msgEl) {
+                msgEl.innerHTML = firstError;
+            } else {
+                throw errorMesages.formMgsAttrNotFound;
+            }
         });
     }
 
@@ -133,7 +139,12 @@ export default class Validator {
      */
     clearError(input) {
         const msg = input.parentElement.querySelector('[data-form-message]');
-        msg.innerHTML = '';
+        
+        if(msg) {
+            msg.innerHTML = '';
+        } else {
+            throw errorMesages.formMgsAttrNotFound;
+        }
 
         this.errorList = this.errorList.filter(obj => obj.input !== input);
     }
@@ -187,7 +198,7 @@ export default class Validator {
                 msg = msg(v);
             }
         } else {
-            throw new Error(`¡ERROR! No existe mensaje de error para la regla "${r}".`);
+            throw errorMesages.msgNotFound(r);
         }
 
         return msg;
@@ -213,8 +224,9 @@ export default class Validator {
             }
 
             return input;
+        } else {
+            throw errorMesages.inputNotFound(param);
         }
-        return null;
     }
 
     /**
