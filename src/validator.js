@@ -120,7 +120,7 @@ export default class Validator {
                 daddy.classList.add(mod.errorClass);
             }
 
-            if(msgEl) {
+            if (msgEl) {
                 msgEl.innerHTML = firstError;
             } else {
                 throw errorMesages.formMgsAttrNotFound;
@@ -139,8 +139,8 @@ export default class Validator {
      */
     clearError(input) {
         const msg = input.parentElement.querySelector('[data-form-message]');
-        
-        if(msg) {
+
+        if (msg) {
             msg.innerHTML = '';
         } else {
             throw errorMesages.formMgsAttrNotFound;
@@ -224,9 +224,8 @@ export default class Validator {
             }
 
             return input;
-        } else {
-            throw errorMesages.inputNotFound(param);
         }
+        throw errorMesages.inputNotFound(param);
     }
 
     /**

@@ -1,5 +1,5 @@
 describe('Validation rules for CIF', () => {
-  /*
+    /*
   const validCIF = [
     'A48511794',
     'B61355269',
@@ -25,7 +25,7 @@ describe('Validation rules for CIF', () => {
   const invalidCIF = ['123456789', '12345678A', '123', ''];
 */
 
-  test('Is should have 9 chars', () => {
-    expect('a').toEqual('a');
-  });
+    test('Is should have 9 chars', () => {
+        expect('a').toEqual('a');
+    });
 });
