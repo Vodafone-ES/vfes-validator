@@ -1,8 +1,12 @@
-import Validator from './validator.js';
+import Validator from '../src/validator';
+
+import { html } from './html.mock';
+
+document.body.innerHTML = html;
 
 const form = document.getElementById('form1');
 
-const validator = new Validator(form, {
+export const validatorObj = new Validator(form, {
     customRules: {
         valueIs: (input, ruleValue) => {
             return input.value === ruleValue;
@@ -55,4 +59,4 @@ const validator = new Validator(form, {
     errorClass: 'form-error',
 });
 
-validator.init();
+validatorObj.init();

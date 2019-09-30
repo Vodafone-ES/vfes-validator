@@ -1,0 +1,65 @@
+export const html = `
+ <h1>Formulario de ejemplo</h1>
+		<form id="form1" action="/" method="POST">
+			<fieldset>
+				<legend>Legend</legend>
+				<div>
+					<label for="nif">Label para el campo NIF: </label>
+					<input id="nif" type="text" name="nif" placeholder="Ej: 99999999Z" />
+					<p data-form-message></p>
+				</div>
+				<div>
+					<label for="nie">Label para el campo NIE: </label>
+					<input id="nie" type="text" name="nie" placeholder="Ej: Z9999999Z" />
+					<p data-form-message></p>
+				</div>
+				<div>
+					<label for="cif">Label para el campo CIF: </label>
+					<input id="cif" type="text" name="cif" placeholder="Ej: Z99999999" />
+					<p data-form-message></p>
+				</div>
+				<div>
+					<label for="email">Label para el campo de email: </label>
+					<input id="email" type="email" name="email" placeholder="Email" />
+					<p data-form-message></p>
+				</div>
+				<div>
+					<label for="cp">Label para el campo de Código Postal: </label>
+					<input id="cp" type="number" name="cp" placeholder="Código postal" />
+					<p data-form-message></p>
+				</div>
+				<div>
+					<label for="number">Label para el campo de números: </label>
+					<input id="number" type="number" name="number" placeholder="números" />
+					<p data-form-message></p>
+				</div>
+				<div>
+					<label for="text-required">Label para el campo requerido: </label>
+					<input id="text-required" type="text" name="text-required" placeholder="requerido" />
+					<p data-form-message></p>
+				</div>
+				<div>
+					<label for="checkbox">Label para el checkbox: </label>
+					<input id="checkbox" type="checkbox" name="checkbox" value="on" />
+					<p data-form-message></p>
+				</div>
+				<div>
+					<input id="radio1" type="radio" name="radio" value="radio1" checked />
+					<label for="radio1">Label para el radio1: </label>
+					<input id="radio2" type="radio" name="radio" value="radio2" />
+					<label for="radio2">Label para el radio2: </label>
+					<input id="radio3" type="radio" name="radio" value="radio3" />
+					<label for="radio3">Label para el radio3: </label>
+					<p data-form-message></p>
+				</div>
+				<div>
+					<label for="textarea">Label para el textarea: </label>
+					<textarea name="textarea" id="textarea" cols="30" rows="10"></textarea>
+					<p data-form-message></p>
+				</div>
+				<div>
+					<input type="submit" value="Input submit" />
+				</div>
+			</fieldset>
+		</form>
+ `;
