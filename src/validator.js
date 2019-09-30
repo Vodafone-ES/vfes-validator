@@ -120,7 +120,7 @@ export default class Validator {
                 daddy.classList.add(mod.errorClass);
             }
 
-            if(msgEl) {
+            if (msgEl) {
                 msgEl.innerHTML = firstError;
             } else {
                 throw errorMesages.formMgsAttrNotFound;
@@ -139,8 +139,8 @@ export default class Validator {
      */
     clearError(input) {
         const msg = input.parentElement.querySelector('[data-form-message]');
-        
-        if(msg) {
+
+        if (msg) {
             msg.innerHTML = '';
         } else {
             throw errorMesages.formMgsAttrNotFound;
@@ -224,9 +224,8 @@ export default class Validator {
             }
 
             return input;
-        } else {
-            throw errorMesages.inputNotFound(param);
         }
+        throw errorMesages.inputNotFound(param);
     }
 
     /**
@@ -314,15 +313,12 @@ export default class Validator {
      */
     validate() {
         const mod = this;
-
         Object.keys(mod.rules).forEach(name => {
             const auxInput = mod.getInput(name);
-
             if (auxInput) {
                 mod.validateInput(auxInput);
             }
         });
-
         if (mod.hasErrors()) {
             mod.showErrors();
             return {
@@ -330,7 +326,6 @@ export default class Validator {
                 countError: mod.errorList.length,
             };
         }
-
         return { isOk: true };
     }
 
@@ -345,11 +340,8 @@ export default class Validator {
      */
     onSubmitHandler(ev) {
         const mod = this;
-
         ev.preventDefault();
-
         mod.clearFormErrors();
-
         if (mod.validate().isOk) {
             mod.form.submit();
         }
@@ -358,7 +350,6 @@ export default class Validator {
     onFocusoutHandler(ev) {
         const mod = this;
         const input = ev.target;
-
         mod.clearError(input);
         mod.validateInput(input);
     }
@@ -372,13 +363,10 @@ export default class Validator {
      */
     init() {
         const mod = this;
-
         mod.form.addEventListener('submit', mod.onSubmitEventListener);
-
         if (mod.onfocusout) {
             Object.keys(mod.rules).forEach(name => {
                 const input = mod.getInput(name);
-
                 if (input) {
                     input.addEventListener('focusout', this.onFocusoutEventListener);
                 }
