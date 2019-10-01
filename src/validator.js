@@ -114,7 +114,9 @@ export default class Validator {
         mod.errorList.forEach(err => {
             const daddy = err.input.parentElement;
             const [firstError] = err.errors;
-            const msgEl = daddy.querySelector('[data-form-message]');
+            let msgEl = daddy.querySelector('[data-form-message]');
+
+            msgEl = msgEl ? msgEl : document.querySelector(`[data-form-message="${err.input.name}"]`);
 
             if (mod.errorClass) {
                 daddy.classList.add(mod.errorClass);
@@ -138,7 +140,9 @@ export default class Validator {
      * @returns { undefined }
      */
     clearError(input) {
-        const msg = input.parentElement.querySelector('[data-form-message]');
+        let msg = input.parentElement.querySelector('[data-form-message]');
+
+        msg = msg ? msg : document.querySelector(`[data-form-message="${input.name}"]`);
 
         if (msg) {
             msg.innerHTML = '';
