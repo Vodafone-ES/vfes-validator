@@ -1,6 +1,6 @@
 import dig from '../src/rules/digits';
 
-describe('Validation rules for CP (Código postal)', () => {
+describe('Validation rules for Digits', () => {
     const validDig = ['01071', '99999999999', '9', '0'];
 
     const invalidDig = ['A2345', '1234 ', ' 53000', '', '45.000', '12,34'];
