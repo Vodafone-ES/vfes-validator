@@ -1,5 +1,5 @@
 // La primera letra del CIF solo puede ser una de las siguientes.
-const initLetter = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'N', 'P', 'Q', 'R', 'S', 'U', 'V', 'W'];
+const initLetter = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'U', 'V', 'W'];
 // Para que el digito de control sea obligatoriamente una letra, el CIF ha de empezar por una de las siguientes:
 const endLetterIf = ['P', 'Q', 'R', 'S', 'W'];
 // Para que el digito de control sea obligatoriamente un numero, el CIF ha de empezar por una de las siguientes:
