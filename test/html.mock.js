@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<title>Validation example</title>
-	</head>
-	<body>
-		<h1>Formulario de ejemplo</h1>
+export const html = `
+ <h1>Formulario de ejemplo</h1>
 		<form id="form1" action="/" method="POST">
 			<fieldset>
 				<legend>Legend</legend>
-				<p data-form-message="nif"></p>
 				<div>
 					<label for="nif">Label para el campo NIF: </label>
 					<input id="nif" type="text" name="nif" placeholder="Ej: 99999999Z" />
+					<p data-form-message></p>
 				</div>
 				<div>
 					<label for="nie">Label para el campo NIE: </label>
@@ -68,6 +62,4 @@
 				</div>
 			</fieldset>
 		</form>
-	</body>
-	<script type="module" src="index.js"></script>
-</html>
+ `;
