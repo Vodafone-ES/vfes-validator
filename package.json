@@ -23,7 +23,7 @@
   ],
   "author": "Vodafone ES",
   "license": "MIT",
-  "homepage": "https://github.com/Vodafone-ES/vfes-validator.git/README.md",
+  "homepage": "https://github.com/Vodafone-ES/vfes-validator/blob/master/README.md",
   "browserslist": [
     "last 2 Chrome versions",
     "last 2 Firefox versions",
