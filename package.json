@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://bitbucket.agile.vodafone.com/scm/cseof/vfes-validator.git"
+    "url": "git+https://github.com/Vodafone-ES/vfes-validator.git.git"
   },
   "keywords": [
     "Web form validator",
@@ -23,7 +23,7 @@
   ],
   "author": "Vodafone ES",
   "license": "MIT",
-  "homepage": "https://bitbucket.agile.vodafone.com/projects/CSEOF/repos/vfes-validator/browse/README.md",
+  "homepage": "https://github.com/Vodafone-ES/vfes-validator.git/README.md",
   "browserslist": [
     "last 2 Chrome versions",
     "last 2 Firefox versions",

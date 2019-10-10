@@ -116,7 +116,7 @@ export default class Validator {
             const [firstError] = err.errors;
             let msgEl = daddy.querySelector('[data-form-message]');
 
-            msgEl = msgEl ? msgEl : document.querySelector(`[data-form-message="${err.input.name}"]`);
+            msgEl = msgEl || document.querySelector(`[data-form-message="${err.input.name}"]`);
 
             if (mod.errorClass) {
                 daddy.classList.add(mod.errorClass);
@@ -142,7 +142,7 @@ export default class Validator {
     clearError(input) {
         let msg = input.parentElement.querySelector('[data-form-message]');
 
-        msg = msg ? msg : document.querySelector(`[data-form-message="${input.name}"]`);
+        msg = msg || document.querySelector(`[data-form-message="${input.name}"]`);
 
         if (msg) {
             msg.innerHTML = '';
