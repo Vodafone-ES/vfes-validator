@@ -1,5 +1,5 @@
 {
-  "name": "vfes-validator",
+  "name": "@vfes/validator",
   "version": "1.0.0",
   "description": "Validator for web forms",
   "main": "index.js",
