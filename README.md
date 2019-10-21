@@ -1,11 +1,27 @@
 # Validador de formularios
-
+---
 Validador genérico de formularios en javascript.
 
 ## Instalación
+---
+Para instalar la librería simplemente debes descargartela desde npm
 
-## Como empezar
-Lo único que tendremos que tener en cuenta, dentro del formulario de HTML, es que los elementos donde mostremos los mensajes de error deben llevar el atributo `data-form-message`.
+```
+    npm install @vfes/vfes-validator
+```
+
+## Como funciona
+---
+A continuación se explicará en dos partes como funciona la librería:
+
+### HTML
+En la parte del HTML tenemos un formulario normal y corriente en el que dividimos los campos en diferentes cajas.  
+
+Hay que tener en cuenta lo siguiente:
+ - Los inputs siempre tienen que tener un atributo `name` que identifique el campo, ya que se va a utilizar en el javascript.
+ - A la hora de mostrar los mensajes de error de la validación no importa el elemento de HTML que se utilice (`<span>`, `<p>`...), lo importante es que lleve el atributo `data-form-message`. Este elemento puede estar dentro de la caja que contiene el input o fuera, pero si está fuera el atributo debe tener como valor el name del input.
+
+ A continuación un pequeño ejemplo del HTML:
 
 ```html
 <form id="form1" action="/" method="POST">
@@ -13,12 +29,11 @@ Lo único que tendremos que tener en cuenta, dentro del formulario de HTML, es q
         <legend>Legend</legend>
         <div>
             <label for="textFieldExample">Label: </label>
-            <input id="textFieldExample" type="text" name="textFieldExample" placeholder="Escribe algo" />
-            <p data-form-message></p>
+            <input type="text" name="textFieldExample" placeholder="Escribe algo" />
         </div>
         <div>
             <label for="nifFieldExample">NIF: </label>
-            <input id="nifFieldExample" type="text" name="nifFieldExample" placeholder="Ej: 99999999Z" />
+            <input type="text" name="nifFieldExample" placeholder="Ej: 99999999Z" />
             <p data-form-message></p>
         </div>
         <div>
@@ -26,10 +41,14 @@ Lo único que tendremos que tener en cuenta, dentro del formulario de HTML, es q
         </div>
     </fieldset>
 </form>
+
+<p data-form-message="textFieldExample"></p>
 ```
 <br>
 
-## Inicialización de la librería
+### Javascript
+
+A continuación tienes un pequeño ejemplo de javascript basado en el anterior HTML para inicalizar el validador.
 
 ```javascript
     const form = document.getElementById('form1');
@@ -61,7 +80,7 @@ Lo único que tendremos que tener en cuenta, dentro del formulario de HTML, es q
 ```
 <br>
 
-## Rules
+#### Rules
 
 Las reglas se pasan en un **object** y se debe asociar el name del input con el nombre de las reglas existentes. El formato es el siguiente:
 
@@ -87,10 +106,9 @@ Las reglas disponibles por defecto son las siguientes:
 |`nif`           |**boolean**                    | Formato de NIF          |
 |`required`      |**boolean**                    | Campo obligatorio       |
 
----
-<br>
 
-### Mensajes de error
+
+#### Mensajes de error
 Para añadir mensajes tenemos que incluir el objecto ``messages`` dentro de las opciones del validador. Su formato es el siguiente:
 
 ```javascript
@@ -101,11 +119,22 @@ Para añadir mensajes tenemos que incluir el objecto ``messages`` dentro de las 
     }
 ```
 
-<br>
+Por defecto existen diferentes mensajes predefinidos para las reglas que xisten por defecto.
 
-## Otras opciones
+A continuación se listan los mensajes por defecto que existen:
+ - `cif`: CIF incorrecto.
+ - `cp`: Código postal incorrecto.
+ - `digits`: Sólo puede escribir números.
+ - `email`: Formato de email incorrecto.
+ - `maxlength`: (n) caracteres como máximo.
+ - `minlength`: (n) caracteres como mínimo.
+ - `nie`: NIE incorrecto.
+ - `nif`: NIF incorrecto.
+ - `required`: Campo obligatorio.
 
-Podemos añadir varias opciones más al validador de las antes mencionadas. Una de ellas es el **object** ``customRules``. Con este objeto podemos definir nuestras propias reglas.  
+#### Otras opciones
+
+Podemos añadir varias opciones más al validador de las antes mencionadas. Una de ellas es el **object** ``customRules``, que nos permite crear nuestras propias reglas de validación.  
 
 Los parámetros que nos devuelve el validador para ejecutar nuestra **customRule** son el ``input`` y el valor de la regla. El formato es el siguiente:  
 
@@ -128,7 +157,7 @@ Los parámetros que nos devuelve el validador para ejecutar nuestra **customRule
     }
 ```
 
-Otra opción que tenemos es ``onfocusout`` lo que nos permite validar cada input al perder el foco. Simplemente añadiremos lo siguiente a las opciones:
+Por otro lado, tenemos ``onfocusout`` lo que nos permite validar cada input al perder el foco. Por defecto se valida tras pulsar el botón de submit.  
 
 ```javascript
 {
@@ -137,7 +166,7 @@ Otra opción que tenemos es ``onfocusout`` lo que nos permite validar cada input
 }
 ```
 
-Por último, si queremos añadir una clase de error cuando la validación sea incorrecta añadiremos ``errorClass`` a las opciones del validador. Un ejemplo de ello:
+Por último, si queremos añadir una clase de error cuando la validación sea incorrecta añadiremos ``errorClass`` a las opciones del validador.  
 
 ```javascript
 {
