@@ -53,7 +53,7 @@ A continuación tienes un pequeño ejemplo de javascript basado en el anterior H
 ```javascript
     const form = document.getElementById('form1');
 
-    const validator = new Validator(form, {
+    const validator = new vfes._validator(form, {
         rules: {
             textFieldExample: {
                 required: true,

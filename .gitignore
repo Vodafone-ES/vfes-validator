@@ -1,6 +1,7 @@
 .vscode/
 .idea/
 node_modules/
+dist/
 
 # Created by .ignore support plugin (hsz.mobi)
 ### macOS template
