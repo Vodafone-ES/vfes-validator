@@ -7,7 +7,7 @@ Validador genérico de formularios en javascript.
 Para instalar la librería simplemente debes descargartela desde npm
 
 ```
-    npm install @vfes/vfes-validator
+    npm install  vfes/vfes-validator
 ```
 
 ## Como funciona
